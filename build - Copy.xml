@@ -1,4 +1,4 @@
-<project name="firstproject" default="main">
+<project name="firstproject" default="target2">
 		
 		<target name="main">
 		
@@ -7,9 +7,9 @@
 						
 		</target>
 		
-			<target name="main">
-		
-			<echo> this is target2 </echo>
+			<target name="target2" depends="main">
+					
+			<echo> this is hello </echo>
 			
 						
 		</target>
