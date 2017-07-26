@@ -17,4 +17,9 @@
 				destdir = "build/classes"/>
 	</target>
 	
+	<target name="exec" depends="compile">
+		<java destdir = "build/classes"
+				basedir= build\jar"/>
+	</target>
+	
 </project>
