@@ -1,25 +1,41 @@
-<project name="simpleproject" default= "compile">
+<project name="javaproject" default="run">
 
-	<target name="clean">
-	
-		<delete dir="build"/>
-	</target>
-	
-	<target name= "init" depends="clean">
-		<mkdir dir= "build"/>
-		<mkdir dir= "build\classes"/>
-		<mkdir dir= "build\jar"/>
-		
-	</target>
-	
-	<target name="compile" depends="init">
-		<javac srcdir = "src"
-				destdir = "build/classes"/>
-	</target>
-	
-	<target name="exec" depends="compile">
-		<java destdir = "build/classes"
-				basedir= build\jar"/>
-	</target>
-	
+<target name ="clean">
+	<delete dir="build/classes"/>
+	<delete dir="build/jar"/>
+</target>
+
+<target name ="init" depends="clean">
+	<mkdir dir="build/classes"/>
+	<mkdir dir="build/jar"/>
+</target>
+
+
+<target name="compile" depends="init">
+	<javac srcdir="src"
+		destdir="build/classes"/>
+			
+			
+</target>
+
+<target name="jar" depends="compile">
+
+	<jar destfile="build/jar/app-1.0.jar" basedir="build/classes"/>
+			
+</target>
+
+<target name="run" depends="jar">
+
+	<java jar="build/jar/app-1.0.jar" fork="true"/>
+			
+</target>
+
 </project>
+
+
+
+
+
+
+
+
