@@ -1,17 +1,20 @@
-<project name="firstproject" default="target2">
+<project name="simpleproject" default= "compile">
+
+	<target name="clean">
+	
+		<delete dir="build"/>
+	</target>
+	
+	<target name= "init" depends="clean">
+		<mkdir dir= "build"/>
+		<mkdir dir= "build\classes"/>
+		<mkdir dir= "build\jar"/>
 		
-		<target name="main">
-		
-			<echo> this is target1 </echo>
-			
-						
-		</target>
-		
-			<target name="target2" depends="main">
-		
-			<echo> this is me </echo>
-			
-						
-		</target>
-		
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir = "src"
+				destdir = "build/classes"/>
+	</target>
+	
 </project>
